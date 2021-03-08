@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/OMEGALUL - Sound Effect.ogg-771a5b87513102d27a256ef922bd94cc.oggstr"
+
+[deps]
+
+source_file="res://audio/OMEGALUL - Sound Effect.ogg"
+dest_files=[ "res://.import/OMEGALUL - Sound Effect.ogg-771a5b87513102d27a256ef922bd94cc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

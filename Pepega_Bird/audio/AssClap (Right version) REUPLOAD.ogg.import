@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/AssClap (Right version) REUPLOAD.ogg-1a5bee70a444b601a3603beaad5d579e.oggstr"
+
+[deps]
+
+source_file="res://audio/AssClap (Right version) REUPLOAD.ogg"
+dest_files=[ "res://.import/AssClap (Right version) REUPLOAD.ogg-1a5bee70a444b601a3603beaad5d579e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

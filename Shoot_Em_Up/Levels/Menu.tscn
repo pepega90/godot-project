@@ -1,0 +1,161 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Interface/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/Font/kenvector_future.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/UI Element/metalPanel_blue.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI Element/crossair_black.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Menu.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.33484
+margin_right = 1.33484
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
+margin_left = 312.0
+margin_top = 100.0
+margin_right = 712.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 400, 400 )
+texture = ExtResource( 3 )
+patch_margin_left = 12
+patch_margin_top = 40
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 30.0
+margin_right = -12.0
+margin_bottom = -12.0
+custom_constants/separation = 13
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_right = 376.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Welcome
+to"
+align = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 74.0
+margin_right = 376.0
+margin_bottom = 119.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "SHOOT EM UP"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 132.0
+margin_right = 376.0
+margin_bottom = 164.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/NinePatchRect/VBoxContainer/HBoxContainer"]
+margin_left = 172.0
+margin_right = 204.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 177.0
+margin_right = 376.0
+margin_bottom = 353.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer"]
+margin_left = 50.0
+margin_right = 325.0
+margin_bottom = 176.0
+custom_constants/vseparation = 12
+custom_constants/hseparation = 9
+columns = 2
+
+[node name="StartButton" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/GridContainer"]
+margin_right = 40.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 40, 35 )
+
+[node name="Label" type="Label" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/GridContainer"]
+margin_left = 49.0
+margin_top = 4.0
+margin_right = 275.0
+margin_bottom = 31.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "start game"
+
+[node name="SelectLevelButton" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/GridContainer"]
+margin_top = 47.0
+margin_right = 40.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 40, 35 )
+
+[node name="Label4" type="Label" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/GridContainer"]
+margin_left = 49.0
+margin_top = 51.0
+margin_right = 275.0
+margin_bottom = 78.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "select level"
+
+[node name="TutorialButton" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/GridContainer"]
+margin_top = 94.0
+margin_right = 40.0
+margin_bottom = 129.0
+rect_min_size = Vector2( 40, 35 )
+
+[node name="Label3" type="Label" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/GridContainer"]
+margin_left = 49.0
+margin_top = 98.0
+margin_right = 275.0
+margin_bottom = 125.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tutorial"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/GridContainer"]
+margin_top = 141.0
+margin_right = 40.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 40, 35 )
+
+[node name="Label2" type="Label" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/GridContainer"]
+margin_left = 49.0
+margin_top = 145.0
+margin_right = 275.0
+margin_bottom = 172.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Quit game"
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/GridContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/GridContainer/SelectLevelButton" to="." method="_on_SelectLevelButton_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/GridContainer/TutorialButton" to="." method="_on_TutorialButton_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/GridContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

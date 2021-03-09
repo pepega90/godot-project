@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gun_effect.ogg-f9aa7e60592c15e3b0b139e788ff0164.oggstr"
+
+[deps]
+
+source_file="res://SFX/gun_effect.ogg"
+dest_files=[ "res://.import/gun_effect.ogg-f9aa7e60592c15e3b0b139e788ff0164.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

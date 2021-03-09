@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/Character/Enemy.png" type="Texture" id=1]
+[ext_resource path="res://Musuh/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://Items/Bullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Items/Flashlight.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SFX/gun_effect.ogg" type="AudioStream" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[sub_resource type="OccluderPolygon2D" id=2]
+cull_mode = 1
+polygon = PoolVector2Array( -8.02673, -14.3766, -5.77537, -19.9387, -2.99428, -21.6604, 5.34899, -21.7928, 9.58684, -18.0847, 10.6168, -11.9449, 11.3085, -7.532, 15.9715, -0.763145, 12.3691, 7.6708, 14.4905, 7.31724, 15.814, 4.9065, 28.4919, 4.43403, 29.9094, 6.00893, 38.8075, 6.4814, 39.1225, 12.6235, 30.3455, 12.9137, 28.7865, 14.6955, 21.5479, 14.5842, 21.2138, 16.8114, 19.4363, 18.2932, 15.9798, 19.2614, 14.1603, 20.8917, -3.73134, 21.3773, -7.53555, 17.3682, -8.09237, 13.4705, -13.9946, 13.8046, -15.5266, 11.9148, -16.5502, -0.133184, -15.8415, -11.7874, -11.656, -12.7669, -8.75447, -13.2049 )
+
+[node name="Enemy" type="KinematicBody2D" groups=[
+"enemy",
+]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 2 )
+bullet = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 12, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2( 1, 1.1 )
+shape = SubResource( 1 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 49, 9.5 )
+
+[node name="ShootTime" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="PatroliTime" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource( 2 )
+
+[node name="Flashlight" parent="." instance=ExtResource( 4 )]
+[connection signal="timeout" from="ShootTime" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="PatroliTime" to="." method="_on_PatroliTime_timeout"]

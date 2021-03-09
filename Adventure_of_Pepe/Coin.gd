@@ -1,0 +1,13 @@
+extends Area2D
+
+var taken = false
+
+func _on_Area2D_body_entered(body):
+	if not taken:
+		taken = true
+		$AnimationPlayer.play("Coin")
+		$AudioStreamPlayer.play()
+		get_tree().call_group("Gamestate", "coin_taken")
+
+func coin_taken():
+	queue_free()

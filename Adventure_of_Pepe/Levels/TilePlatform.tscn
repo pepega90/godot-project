@@ -1,0 +1,176 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/Tiles/17.png" type="Texture" id=1]
+[ext_resource path="res://assets/Tiles/18.png" type="Texture" id=2]
+[ext_resource path="res://assets/Tiles/16.png" type="Texture" id=3]
+[ext_resource path="res://assets/Tiles/15.png" type="Texture" id=4]
+[ext_resource path="res://assets/Tiles/14.png" type="Texture" id=5]
+[ext_resource path="res://assets/Tiles/13.png" type="Texture" id=6]
+[ext_resource path="res://assets/Tiles/12.png" type="Texture" id=7]
+[ext_resource path="res://assets/Tiles/11.png" type="Texture" id=8]
+[ext_resource path="res://assets/Tiles/10.png" type="Texture" id=9]
+[ext_resource path="res://assets/Tiles/9.png" type="Texture" id=10]
+[ext_resource path="res://assets/Tiles/8.png" type="Texture" id=11]
+[ext_resource path="res://assets/Tiles/7.png" type="Texture" id=12]
+[ext_resource path="res://assets/Tiles/6.png" type="Texture" id=13]
+[ext_resource path="res://assets/Tiles/5.png" type="Texture" id=14]
+[ext_resource path="res://assets/Tiles/4.png" type="Texture" id=15]
+[ext_resource path="res://assets/Tiles/3.png" type="Texture" id=16]
+[ext_resource path="res://assets/Tiles/2.png" type="Texture" id=17]
+[ext_resource path="res://assets/Tiles/1.png" type="Texture" id=18]
+
+[node name="TilePlatformer" type="Node2D"]
+
+[node name="1" type="Sprite" parent="."]
+position = Vector2( 75.4243, 86.7015 )
+texture = ExtResource( 18 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="1/StaticBody2D"]
+polygon = PoolVector2Array( -59.6878, -64.5325, 64.1186, -63.8651, 63.1175, 64.6132, -64.6934, 64.2795, -65.3608, -32.4964, -64.6934, -53.5201 )
+
+[node name="2" type="Sprite" parent="."]
+position = Vector2( 342.528, 651.146 )
+texture = ExtResource( 17 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="2/StaticBody2D2"]
+polygon = PoolVector2Array( -59.6878, -64.5325, 64.1186, -63.8651, 63.1175, 64.6132, -64.6934, 64.2795, -65.3608, -32.4964, -64.6934, -53.5201 )
+
+[node name="3" type="Sprite" parent="."]
+position = Vector2( 133.381, 600.749 )
+texture = ExtResource( 16 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="3/StaticBody2D3"]
+polygon = PoolVector2Array( -59.6878, -64.5325, 64.1186, -63.8651, 63.1175, 64.6132, -64.6934, 64.2795, -65.3608, -32.4964, -64.6934, -53.5201 )
+
+[node name="4" type="Sprite" parent="."]
+position = Vector2( 1015.33, 247.971 )
+texture = ExtResource( 15 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="4"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="4/StaticBody2D4"]
+polygon = PoolVector2Array( -59.6878, -64.5325, 64.1186, -63.8651, 63.1175, 64.6132, -64.6934, 64.2795, -65.3608, -32.4964, -64.6934, -53.5201 )
+
+[node name="5" type="Sprite" parent="."]
+position = Vector2( 720.504, 479.797 )
+texture = ExtResource( 14 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="5"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="5/StaticBody2D5"]
+polygon = PoolVector2Array( -59.6878, -64.5325, 64.1186, -63.8651, 63.1175, 64.6132, -64.6934, 64.2795, -65.3608, -32.4964, -64.6934, -53.5201 )
+
+[node name="6" type="Sprite" parent="."]
+position = Vector2( 508.837, 454.598 )
+texture = ExtResource( 13 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="6"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="6/StaticBody2D6"]
+polygon = PoolVector2Array( -59.6878, -64.5325, 64.1186, -63.8651, 63.1175, 64.6132, -64.6934, 64.2795, -65.3608, -32.4964, -64.6934, -53.5201 )
+
+[node name="7" type="Sprite" parent="."]
+position = Vector2( 314.809, 406.721 )
+texture = ExtResource( 12 )
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="7"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="7/StaticBody2D7"]
+polygon = PoolVector2Array( -59.6878, -64.5325, 64.1186, -63.8651, 63.1175, 64.6132, -64.6934, 64.2795, -65.3608, -32.4964, -64.6934, -53.5201 )
+
+[node name="8" type="Sprite" parent="."]
+position = Vector2( 113.222, 415.512 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="8"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="8/StaticBody2D8"]
+polygon = PoolVector2Array( -59.6878, -64.5325, 64.1186, -63.8651, 63.1175, 64.6132, -64.6934, 64.2795, -65.3608, -32.4964, -64.6934, -53.5201 )
+
+[node name="9" type="Sprite" parent="."]
+position = Vector2( 923.795, 480.19 )
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="9"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="9/StaticBody2D9"]
+polygon = PoolVector2Array( -59.6878, -64.5325, 64.1186, -63.8651, 63.1175, 64.6132, -64.6934, 64.2795, -65.3608, -32.4964, -64.6934, -53.5201 )
+
+[node name="10" type="Sprite" parent="."]
+position = Vector2( 764.099, 264.983 )
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="10"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="10/StaticBody2D10"]
+polygon = PoolVector2Array( -59.6878, -64.5325, 64.1186, -63.8651, 63.1175, 64.6132, -64.6934, 64.2795, -65.3608, -32.4964, -64.6934, -53.5201 )
+
+[node name="11" type="Sprite" parent="."]
+position = Vector2( 546.355, 250.691 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="11"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="11/StaticBody2D11"]
+polygon = PoolVector2Array( -59.6878, -64.5325, 64.1186, -63.8651, 63.1175, 64.6132, -64.6934, 64.2795, -65.3608, -32.4964, -64.6934, -53.5201 )
+
+[node name="12" type="Sprite" parent="."]
+position = Vector2( 111.54, 242.287 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="12"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="12/StaticBody2D12"]
+polygon = PoolVector2Array( -59.6878, -64.5325, 64.1186, -63.8651, 62.0976, 59.9023, -31.1365, 63.682, -52.5552, 63.052, -62.6346, 30.2941, -65.3608, -32.4964, -64.6934, -53.5201 )
+
+[node name="13" type="Sprite" parent="."]
+position = Vector2( 289.93, 242.27 )
+texture = ExtResource( 6 )
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="13"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="13/StaticBody2D13"]
+polygon = PoolVector2Array( -63.6257, -45.5796, 62.7613, -46.9338, 64.9885, 47.5015, 17.3255, 41.2652, -44.9738, 4.82034, -60.8478, -7.48201, -65.61, -13.4348, -66.4037, -26.134 )
+
+[node name="14" type="Sprite" parent="."]
+position = Vector2( 264.566, 65.699 )
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="14"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="14/StaticBody2D12"]
+position = Vector2( 0.594604, 0 )
+polygon = PoolVector2Array( -65.5016, -46.2147, 62.3382, -46.8093, 61.1489, 47.7327, -0.689819, 48.3273, -64.907, 48.9219 )
+
+[node name="15" type="Sprite" parent="."]
+position = Vector2( 444.495, 77.4716 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="15"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="15/StaticBody2D14"]
+polygon = PoolVector2Array( -63.6257, -45.5796, 62.7613, -46.9338, 63.4254, -0.0506134, -23.883, 43.3676, -63.9976, 47.1431, -65.61, -13.4348, -66.4037, -26.134 )
+
+[node name="16" type="Sprite" parent="."]
+position = Vector2( 623.563, 62.3525 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="16"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="16/StaticBody2D13"]
+position = Vector2( 0.594604, 0 )
+polygon = PoolVector2Array( -64.9156, -62.4311, 60.9493, -64.5525, 56.5355, 61.0335, -16.6226, 64.3971, -63.2923, 56.4086 )
+
+[node name="17" type="Sprite" parent="."]
+position = Vector2( 834.614, 65.7218 )
+texture = ExtResource( 1 )
+
+[node name="18" type="Sprite" parent="."]
+position = Vector2( 1047.32, 86.7243 )
+texture = ExtResource( 2 )

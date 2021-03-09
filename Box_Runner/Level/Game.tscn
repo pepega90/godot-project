@@ -1,0 +1,95 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Level/Floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.gd" type="Script" id=3]
+[ext_resource path="res://Level/Rintangan.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Level/Game.gd" type="Script" id=5]
+[ext_resource path="res://Interface/Tribute.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Interface/Wall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Interface/LoseScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Interface/PauseMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Interface/GUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://GFX/picture.png" type="Texture" id=11]
+[ext_resource path="res://SFX/Fall 'N' Roll.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Controller/Controller.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Interface/Stars.tscn" type="PackedScene" id=14]
+
+[sub_resource type="SpatialMaterial" id=1]
+params_cull_mode = 1
+albedo_texture = ExtResource( 11 )
+
+[sub_resource type="QuadMesh" id=2]
+material = SubResource( 1 )
+size = Vector2( 1, 2 )
+
+[node name="Game" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="Floor" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 17, 0, 0, 7 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.786672, -7.28129 )
+script = ExtResource( 3 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -1, 4.61853e-14, -3.25841e-07, -1.12982e-07, 0.937961, 0.34674, 3.05626e-07, 0.34674, -0.937961, 0, 3.04318, -10.6605 )
+current = true
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -1, 9.23705e-14, 3.25842e-07, 5.89269e-08, 0.983512, 0.180845, -3.20469e-07, 0.180845, -0.983512, 0, 3.443, -11.864 )
+shadow_enabled = true
+
+[node name="Obstacle" type="Node" parent="."]
+
+[node name="Rintangan" parent="Obstacle" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.58, 25.7471 )
+
+[node name="Rintangan2" parent="Obstacle" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.303, 0.58, 21.4497 )
+
+[node name="Rintangan3" parent="Obstacle" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.58, 22.9887 )
+
+[node name="Bintang" type="Node" parent="."]
+
+[node name="Stars" parent="Bintang" instance=ExtResource( 14 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.406864, 23.0412 )
+
+[node name="Decor" type="Node" parent="."]
+
+[node name="Tribute" parent="Decor" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, -2.52181, 0, 0 )
+
+[node name="Tribute2" parent="Decor" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, 2.57728, 0, 0 )
+
+[node name="Wall" parent="Decor" instance=ExtResource( 7 )]
+transform = Transform( -9.77524e-06, 0, 1, 0, 20, 0, -60, 0, -1.62921e-07, -3.03009, 2.59214, 0 )
+
+[node name="Wall2" parent="Decor" instance=ExtResource( 7 )]
+transform = Transform( -9.77524e-06, 0, -1, 0, 20, 0, 60, 0, -1.62921e-07, 3.03, 2.592, 0 )
+
+[node name="Picture" type="MeshInstance" parent="Decor"]
+transform = Transform( -1.62921e-07, 0, -1, -0.184277, 0.982874, 3.00226e-08, 0.982874, 0.184277, -1.60131e-07, -3.0201, 2.1954, -2.43457 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="LoseScreen" parent="." instance=ExtResource( 8 )]
+
+[node name="GUI" parent="." instance=ExtResource( 10 )]
+
+[node name="Controller" parent="." instance=ExtResource( 13 )]
+
+[node name="PauseMenu" parent="." instance=ExtResource( 9 )]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -15.0
+autoplay = true
+[connection signal="show_pause_menu" from="GUI" to="PauseMenu" method="_on_GUI_show_pause_menu"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

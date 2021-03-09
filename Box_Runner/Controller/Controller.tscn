@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Controller/arrow.png" type="Texture" id=1]
+[ext_resource path="res://assets/Controller/abutton2.png" type="Texture" id=2]
+[ext_resource path="res://Controller/ControllerNode.gd" type="Script" id=3]
+
+[node name="Controller" type="CanvasLayer"]
+
+[node name="ControllerNode" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Left" type="TouchScreenButton" parent="ControllerNode"]
+position = Vector2( 19.6483, 653.129 )
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 1 )
+passby_press = true
+action = "left"
+
+[node name="Right" type="TouchScreenButton" parent="ControllerNode"]
+position = Vector2( 367.314, 753.034 )
+rotation = 3.14159
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 1 )
+passby_press = true
+action = "right"
+
+[node name="Jump" type="TouchScreenButton" parent="ControllerNode"]
+position = Vector2( 364.186, 491.053 )
+scale = Vector2( 1.23597, 1.23597 )
+normal = ExtResource( 2 )
+passby_press = true
+action = "jump"
+[connection signal="pressed" from="ControllerNode/Left" to="ControllerNode" method="_on_Left_pressed"]
+[connection signal="released" from="ControllerNode/Left" to="ControllerNode" method="_on_Left_released"]
+[connection signal="pressed" from="ControllerNode/Right" to="ControllerNode" method="_on_Right_pressed"]
+[connection signal="released" from="ControllerNode/Right" to="ControllerNode" method="_on_Right_released"]
+[connection signal="pressed" from="ControllerNode/Jump" to="ControllerNode" method="_on_Jump_pressed"]
+[connection signal="released" from="ControllerNode/Jump" to="ControllerNode" method="_on_Jump_released"]

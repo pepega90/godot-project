@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Interface/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Interface/DieScreen.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/PERRYGOT.TTF" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 3 )
+
+[node name="DieScreen" type="CanvasLayer"]
+
+[node name="DieScreen" type="Control" parent="." groups=[
+"DieScreen",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="DieScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DieScreen/CenterContainer"]
+margin_left = 202.0
+margin_top = 175.0
+margin_right = 598.0
+margin_bottom = 305.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.960784, 0.294118, 0.294118, 1 )
+custom_constants/line_spacing = 50
+text = "You Dead
+Touch to restart"
+align = 1

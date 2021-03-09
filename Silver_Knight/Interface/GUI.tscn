@@ -1,0 +1,144 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Fonts/PERRYGOT.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/UI Component/hudHeart_full.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI Component/keyBlue.png" type="Texture" id=3]
+[ext_resource path="res://Interface/Control.gd" type="Script" id=4]
+[ext_resource path="res://assets/UI Component/coin_bronze.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=8]
+ItemList/colors/font_color = Color( 0.63, 0.63, 0.63, 1 )
+ItemList/colors/font_color_selected = Color( 1, 1, 1, 1 )
+ItemList/colors/guide_color = Color( 0, 0, 0, 0.1 )
+ItemList/constants/hseparation = 4
+ItemList/constants/icon_margin = 4
+ItemList/constants/line_separation = 2
+ItemList/constants/vseparation = 2
+ItemList/fonts/font = null
+ItemList/styles/bg = SubResource( 1 )
+ItemList/styles/bg_focus = SubResource( 2 )
+ItemList/styles/cursor = SubResource( 3 )
+ItemList/styles/cursor_unfocused = SubResource( 4 )
+ItemList/styles/selected = SubResource( 5 )
+ItemList/styles/selected_focus = SubResource( 6 )
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = SubResource( 7 )
+Label/styles/normal = null
+
+[sub_resource type="Animation" id=9]
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="." groups=[
+"GUI",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 8 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 260.0
+margin_bottom = 140.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/HBoxContainer"]
+margin_top = 49.0
+margin_bottom = 79.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer"]
+margin_left = 4.0
+margin_right = 132.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+
+[node name="LiveUps" type="AnimationPlayer" parent="Control/HBoxContainer"]
+anims/LifeUp = SubResource( 9 )
+
+[node name="CoinContainer" type="HBoxContainer" parent="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -140.536
+margin_top = 30.0
+margin_right = -65.536
+margin_bottom = 73.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coin" type="Label" parent="Control/CoinContainer"]
+margin_top = 15.0
+margin_bottom = 45.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="CoinImg" type="TextureRect" parent="Control/CoinContainer"]
+margin_left = 15.0
+margin_right = 75.0
+margin_bottom = 61.0
+texture = ExtResource( 5 )
+
+[node name="KeyContainer" type="NinePatchRect" parent="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -274.728
+margin_top = 10.0
+margin_right = -174.728
+margin_bottom = 61.0
+rect_min_size = Vector2( 100, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="Control/KeyContainer"]
+margin_left = 14.4891
+margin_right = 164.489
+margin_bottom = 141.0
+rect_scale = Vector2( 0.75, 0.75 )
+items = [ "", ExtResource( 3 ), false ]
+auto_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

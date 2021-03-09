@@ -1,0 +1,99 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/NPC/character_zombie_walk0.png" type="Texture" id=1]
+[ext_resource path="res://assets/NPC/character_zombie_walk3.png" type="Texture" id=2]
+[ext_resource path="res://assets/NPC/character_zombie_walk1.png" type="Texture" id=3]
+[ext_resource path="res://assets/NPC/character_zombie_walk2.png" type="Texture" id=4]
+[ext_resource path="res://assets/NPC/character_zombie_walk4.png" type="Texture" id=5]
+[ext_resource path="res://assets/NPC/character_zombie_walk5.png" type="Texture" id=6]
+[ext_resource path="res://assets/NPC/character_zombie_walk6.png" type="Texture" id=7]
+[ext_resource path="res://assets/NPC/character_zombie_walk7.png" type="Texture" id=8]
+[ext_resource path="res://assets/NPC/character_zombie_attack0.png" type="Texture" id=9]
+[ext_resource path="res://assets/NPC/character_zombie_attack1.png" type="Texture" id=10]
+[ext_resource path="res://assets/NPC/character_zombie_attack2.png" type="Texture" id=11]
+[ext_resource path="res://assets/NPC/character_zombie_idle.png" type="Texture" id=12]
+[ext_resource path="res://Characters/Zombie.gd" type="Script" id=13]
+[ext_resource path="res://Characters/Progress.png" type="Texture" id=14]
+[ext_resource path="res://Characters/Background.png" type="Texture" id=15]
+[ext_resource path="res://SFX/Sword_Slash.ogg" type="AudioStream" id=16]
+[ext_resource path="res://SFX/Zombie_Groans.ogg" type="AudioStream" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32.1862, 124.507 )
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 54.6833
+height = 166.767
+
+[node name="Zombie" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource( 13 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 1 )
+animation = "idle"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 33.6359 )
+shape = SubResource( 2 )
+
+[node name="Floorcheck" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 200 )
+collision_mask = 4
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 34.6482 )
+shape = SubResource( 3 )
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_left = -179.0
+margin_top = -139.0
+margin_right = 199.0
+margin_bottom = -101.0
+max_value = 30.0
+step = 10.0
+value = 30.0
+texture_under = ExtResource( 15 )
+texture_progress = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="GetHitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -10.0
+
+[node name="Groan" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

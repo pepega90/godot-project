@@ -1,0 +1,108 @@
+[gd_scene load_steps=43 format=2]
+
+[ext_resource path="res://assets/Character/Idle (2).png" type="Texture" id=1]
+[ext_resource path="res://assets/Character/Idle (1).png" type="Texture" id=2]
+[ext_resource path="res://assets/Character/Idle (3).png" type="Texture" id=3]
+[ext_resource path="res://assets/Character/Idle (4).png" type="Texture" id=4]
+[ext_resource path="res://assets/Character/Idle (5).png" type="Texture" id=5]
+[ext_resource path="res://assets/Character/Idle (6).png" type="Texture" id=6]
+[ext_resource path="res://assets/Character/Idle (7).png" type="Texture" id=7]
+[ext_resource path="res://Player/Player.gd" type="Script" id=8]
+[ext_resource path="res://assets/Character/Idle (8).png" type="Texture" id=9]
+[ext_resource path="res://assets/Character/Idle (9).png" type="Texture" id=10]
+[ext_resource path="res://assets/Character/Idle (10).png" type="Texture" id=11]
+[ext_resource path="res://assets/Character/Run (1).png" type="Texture" id=12]
+[ext_resource path="res://assets/Character/Run (2).png" type="Texture" id=13]
+[ext_resource path="res://assets/Character/Run (3).png" type="Texture" id=14]
+[ext_resource path="res://assets/Character/Run (4).png" type="Texture" id=15]
+[ext_resource path="res://assets/Character/Run (5).png" type="Texture" id=16]
+[ext_resource path="res://assets/Character/Run (6).png" type="Texture" id=17]
+[ext_resource path="res://assets/Character/Run (7).png" type="Texture" id=18]
+[ext_resource path="res://assets/Character/Run (8).png" type="Texture" id=19]
+[ext_resource path="res://assets/Character/Run (9).png" type="Texture" id=20]
+[ext_resource path="res://assets/Character/Run (10).png" type="Texture" id=21]
+[ext_resource path="res://assets/Character/Attack (1).png" type="Texture" id=22]
+[ext_resource path="res://assets/Character/Attack (2).png" type="Texture" id=23]
+[ext_resource path="res://assets/Character/Attack (3).png" type="Texture" id=24]
+[ext_resource path="res://assets/Character/Attack (4).png" type="Texture" id=25]
+[ext_resource path="res://assets/Character/Attack (5).png" type="Texture" id=26]
+[ext_resource path="res://assets/Character/Attack (6).png" type="Texture" id=27]
+[ext_resource path="res://assets/Character/Attack (7).png" type="Texture" id=28]
+[ext_resource path="res://assets/Character/Attack (8).png" type="Texture" id=29]
+[ext_resource path="res://assets/Character/Attack (9).png" type="Texture" id=30]
+[ext_resource path="res://assets/Character/Attack (10).png" type="Texture" id=31]
+[ext_resource path="res://assets/Character/Jump (9).png" type="Texture" id=32]
+[ext_resource path="res://assets/Character/Jump (10).png" type="Texture" id=33]
+[ext_resource path="res://assets/Character/Jump (8).png" type="Texture" id=34]
+[ext_resource path="res://SFX/Player_Hurt.ogg" type="AudioStream" id=35]
+[ext_resource path="res://assets/Character/Jump (4).png" type="Texture" id=38]
+[ext_resource path="res://assets/Character/Jump (5).png" type="Texture" id=39]
+[ext_resource path="res://assets/Character/Jump (6).png" type="Texture" id=40]
+[ext_resource path="res://assets/Character/Jump (7).png" type="Texture" id=41]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "idle",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "walk",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "attack",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 34 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "jump",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 64.451, 150.445 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 30.5328, 57.0038 )
+
+[node name="Player" type="KinematicBody2D"]
+collision_mask = 6
+script = ExtResource( 8 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "jump"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 2 )
+
+[node name="AttackArea" type="Area2D" parent="." groups=[
+"Sword",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2( 108.1, 83.3879 )
+shape = SubResource( 3 )
+disabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -201.587 )
+current = true
+zoom = Vector2( 2.5, 2.5 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="PlayerGetHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 35 )
+volume_db = -10.0
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

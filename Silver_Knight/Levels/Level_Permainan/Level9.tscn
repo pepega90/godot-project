@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/TemplateLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Background/blue_desert.png" type="Texture" id=2]
+[ext_resource path="res://Levels/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Characters/Zombie.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Items/Coin.tscn" type="PackedScene" id=5]
+
+[node name="Level9" instance=ExtResource( 1 )]
+
+[node name="Background" parent="." index="0" instance=ExtResource( 3 )]
+bg_texture = ExtResource( 2 )
+
+[node name="TileMap" parent="." index="1"]
+tile_data = PoolIntArray( -1376265, 27, 0, -1376264, 27, 0, -1376263, 27, 0, -1376262, 27, 0, -1376261, 27, 0, -1376260, 27, 0, -1376259, 27, 0, -1114132, 27, 0, -1114131, 27, 0, -1114130, 27, 0, -1114129, 27, 0, -1114128, 27, 0, -851997, 27, 0, -851996, 27, 0, -851995, 27, 0, -851994, 27, 0, -851993, 27, 0, -589861, 27, 0, -589860, 27, 0, -589859, 27, 0, -589858, 27, 0, -524294, 27, 0, -524293, 27, 0, -524292, 27, 0, -589822, 27, 0, -589821, 27, 0, -589820, 27, 0, -262175, 27, 0, -262174, 27, 0, -262173, 27, 0, -262172, 27, 0, -262171, 27, 0, -262170, 27, 0, -262169, 27, 0, -262168, 27, 0, -262167, 27, 0, -262166, 27, 0, -262165, 27, 0, -262164, 27, 0, -262163, 27, 0, -262162, 27, 0, -262161, 27, 0, -262160, 27, 0, -262159, 27, 0, -262158, 27, 0, -262157, 27, 0, -262156, 27, 0, -262155, 27, 0, -65529, 27, 0, -65528, 27, 0, -65527, 27, 0, -65526, 27, 0, -65525, 27, 0, -65524, 27, 0, -65523, 27, 0, -65522, 27, 0, -65521, 27, 0, 262140, 27, 0, 262141, 27, 0, 262142, 27, 0, 262143, 27, 0, 196608, 27, 0, 196609, 27, 0, 196610, 27, 0 )
+
+[node name="Zombie" parent="Musuh" index="0" instance=ExtResource( 4 )]
+position = Vector2( -1379.07, -585.264 )
+
+[node name="Zombie2" parent="Musuh" index="1" instance=ExtResource( 4 )]
+position = Vector2( -390.176, -1641.43 )
+
+[node name="Zombie3" parent="Musuh" index="2" instance=ExtResource( 4 )]
+position = Vector2( 714.538, -315.773 )
+
+[node name="Flag" parent="Flag" index="0"]
+position = Vector2( 0, 129.254 )
+
+[node name="Coin" parent="Coins" index="0" instance=ExtResource( 5 )]
+position = Vector2( 716, -260 )
+
+[node name="Coin2" parent="Coins" index="1" instance=ExtResource( 5 )]
+position = Vector2( 548, -560 )
+
+[node name="Coin3" parent="Coins" index="2" instance=ExtResource( 5 )]
+position = Vector2( 316, -664 )
+
+[node name="Coin4" parent="Coins" index="3" instance=ExtResource( 5 )]
+position = Vector2( -16, -704 )
+
+[node name="Coin5" parent="Coins" index="4" instance=ExtResource( 5 )]
+position = Vector2( -292, -736 )
+
+[node name="Coin6" parent="Coins" index="5" instance=ExtResource( 5 )]
+position = Vector2( -680, -640 )
+
+[node name="Coin7" parent="Coins" index="6" instance=ExtResource( 5 )]
+position = Vector2( -872, -476 )
+
+[node name="Coin8" parent="Coins" index="7" instance=ExtResource( 5 )]
+position = Vector2( -1880, -472 )
+
+[node name="Coin9" parent="Coins" index="8" instance=ExtResource( 5 )]
+position = Vector2( -2260, -768 )
+
+[node name="Coin10" parent="Coins" index="9" instance=ExtResource( 5 )]
+position = Vector2( -1664, -1060 )
+
+[node name="Coin11" parent="Coins" index="10" instance=ExtResource( 5 )]
+position = Vector2( -1112, -1316 )
+
+[node name="Coin12" parent="Coins" index="11" instance=ExtResource( 5 )]
+position = Vector2( 12, -1720 )
+
+[node name="Coin13" parent="Coins" index="12" instance=ExtResource( 5 )]
+position = Vector2( 16, -1496 )
+
+[node name="Coin14" parent="Coins" index="13" instance=ExtResource( 5 )]
+position = Vector2( 16, -1268 )
+
+[node name="Coin15" parent="Coins" index="14" instance=ExtResource( 5 )]
+position = Vector2( 4, -1028 )
+
+[node name="LockKey" parent="LockKey" index="0"]
+position = Vector2( 0, -1831.4 )
